@@ -1,0 +1,52 @@
+# Данный файл - шаблонная конфигурация CI/CD конвейера. Он может быть изменен по Вашему усмотрению. 
+# Некоторые шаблоны требуют предварительной настройки перед запуском.
+#
+# Подробнее о синтаксисе можно узнать в документации:
+# https://docs.gitflic.space/cicd/gitflic-ci-yaml
+
+image: ubuntu:latest
+
+variables:
+  TEST_1_SUCCESS: "true"
+  TEST_2_SUCCESS: "true"
+
+before_script:
+  - echo "Скрипт до основных инструкций (в каждой задаче)"
+
+stages:
+  - test
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Сборка проекта"
+    - echo "Собранный проект" > build.txt
+  artifacts:
+    paths: build.txt
+
+test1:
+  stage: test
+  script:
+    - echo "Первый набор тестов"
+    - echo $TEST_1_SUCCESS
+
+test2:
+  stage: test
+  script:
+    - echo "Второй набор тестов"
+    - echo $TEST_2_SUCCESS
+
+deploy:
+  stage: deploy
+  script:
+    - echo $(cat build.txt)
+    - echo "Развертывание проекта"
+  needs:
+    - build
+  rules:
+    - if: $TEST_1_SUCCESS == "true" && $TEST_2_SUCCESS == "true"
+  
+after_script:
+  - echo "Скрипт после основных инструкций (в каждой задаче)"
