@@ -4,17 +4,13 @@
 # Подробнее о синтаксисе можно узнать в документации:
 # https://docs.gitflic.space/cicd/gitflic-ci-yaml
 
-image: ubuntu:latest
-
 variables:
   TEST_1_SUCCESS: "true"
   TEST_2_SUCCESS: "true"
 
-before_script:
-  - echo "Скрипт до основных инструкций (в каждой задаче)"
 
 stages:
-  - test
+  - [На русском с пробелом]
   - build
   - deploy
 
@@ -27,13 +23,13 @@ build:
     paths: build.txt
 
 test1:
-  stage: test
+  stage: [На русском с пробелом]
   script:
     - echo "Первый набор тестов"
     - echo $TEST_1_SUCCESS
 
 test2:
-  stage: test
+  stage: [На русском с пробелом]
   script:
     - echo "Второй набор тестов"
     - echo $TEST_2_SUCCESS
