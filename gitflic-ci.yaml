@@ -14,7 +14,7 @@ test:
   when: manual
   script:
     - dir
-    - [console]::OutputEncoding
+    - "[console]::OutputEncoding"
     - echo "Тестируем кириллицу в логах гитфлика"
 
 'Загрузить':
