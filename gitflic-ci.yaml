@@ -19,7 +19,7 @@ stages:
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
-'Загрузить ERP_KDS:
+'Загрузить ERP_KDS':
   stage: 'ERP_KDS'
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
