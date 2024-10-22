@@ -19,11 +19,8 @@ build:
   stage: 'Загрузка ERP_MAV'
   script:
     - dir
-    - if not exist ${bamboo.build.working.directory}\Logs mkdir ${bamboo.build.working.directory}\Logs
-    - oscript -encoding=utf-8 D:\Users\Common\git\devops\sql\loadsqlcopy.os ${bamboo.dependency.parent.0} ${bamboo.build.working.directory}
+    - if not exist .\Logs mkdir .\Logs
+    - oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
-  
-after_script:
-  - echo "Скрипт после основных инструкций (в каждой задаче)"
