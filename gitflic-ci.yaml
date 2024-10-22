@@ -6,9 +6,6 @@ stages:
   - 'ERP_BEF'
   - 'ERP_NAM'
 
-before_script:
-  - $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
-
 test:
   stage: 'ERP_MAV'
   when: manual
