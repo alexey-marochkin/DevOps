@@ -10,11 +10,11 @@ stages:
   stage: 'ERP_MAV'
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
-    cmd /c if not exist Logs mkdir Logs;
-    oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+    cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs;
+    oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV
   artifacts:
     name: 'Журнал'
-    paths: Logs    
+    paths: D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs    
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
@@ -24,7 +24,7 @@ stages:
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
     cmd /c if not exist Logs mkdir Logs;
-    oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+    oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV
   artifacts:
     name: 'Журнал'
     paths: Logs    
