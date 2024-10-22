@@ -11,7 +11,7 @@ stages:
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
     cmd /c if not exist Logs mkdir Logs;
-    oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+    oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
   artifacts:
     name: 'Журнал'
     paths: Logs    
@@ -24,7 +24,7 @@ stages:
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
     cmd /c if not exist Logs mkdir Logs;
-    oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+    oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
   artifacts:
     name: 'Журнал'
     paths: Logs    
