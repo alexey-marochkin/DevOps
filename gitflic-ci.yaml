@@ -30,4 +30,4 @@ stages:
     paths: Logs    
   when: manual
   rules:
-    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin1" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
