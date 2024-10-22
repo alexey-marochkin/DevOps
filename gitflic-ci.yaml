@@ -1,18 +1,10 @@
-# Данный файл - шаблонная конфигурация CI/CD конвейера. Он может быть изменен по Вашему усмотрению. 
-# Некоторые шаблоны требуют предварительной настройки перед запуском.
-#
-# Подробнее о синтаксисе можно узнать в документации:
-# https://docs.gitflic.space/cicd/gitflic-ci-yaml
-
-variables:
-  TEST_1_SUCCESS: "true"
-  TEST_2_SUCCESS: "true"
-
-
 stages:
-  - 'На русском с пробелом'
-  - build
-  - deploy
+  - 'ERP_MAV'
+  - 'ERP_KDS'
+  - 'ERP_MMY'
+  - 'ERP_DJR'
+  - 'ERP_BEF'
+  - 'ERP_NAM'
 
 build:
   stage: build
@@ -22,27 +14,16 @@ build:
   artifacts:
     paths: build.txt
 
-test1:
-  stage: 'На русском с пробелом'
-  script:
-    - echo "Первый набор тестов"
-    - echo $TEST_1_SUCCESS
 
-test2:
-  stage: 'На русском с пробелом'
+'Загрузить':
+  stage: 'Загрузка ERP_MAV'
   script:
-    - echo "Второй набор тестов"
-    - echo $TEST_2_SUCCESS
-
-deploy:
-  stage: deploy
-  script:
-    - echo $(cat build.txt)
-    - echo "Развертывание проекта"
-  needs:
-    - build
+    - dir
+    - if not exist ${bamboo.build.working.directory}\Logs mkdir ${bamboo.build.working.directory}\Logs
+    - oscript -encoding=utf-8 D:\Users\Common\git\devops\sql\loadsqlcopy.os ${bamboo.dependency.parent.0} ${bamboo.build.working.directory}
+  when: manual
   rules:
-    - if: $TEST_1_SUCCESS == "true" && $TEST_2_SUCCESS == "true"
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
   
 after_script:
   - echo "Скрипт после основных инструкций (в каждой задаче)"
