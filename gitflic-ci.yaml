@@ -11,6 +11,7 @@ stages:
   script:
 #    - [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("windows-1251")
     - cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs;
+    - dir sql
     - oscript -encoding=windows-1251 'sql\loadsqlcopy.os' RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV;
 
   artifacts:
