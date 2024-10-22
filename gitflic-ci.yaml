@@ -11,6 +11,7 @@ stages:
   script:
     - |
       [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251')
+      echo 'Понеслась родная'
       cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs
       $script = ($(get-location).Path + '\sql\loadsqlcopy.os')
       echo $script
