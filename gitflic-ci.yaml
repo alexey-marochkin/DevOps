@@ -12,12 +12,12 @@ before_script:
 test:
   stage: 'ERP_MAV'
   when: manual
-  script:
-    - chcp 65001;
+  script: >
+    chcp 65001;
     $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding;
     echo "Тестируем кириллицу в логах гитфлика"
-    - "[console]::OutputEncoding"
-    - echo "Тестируем кириллицу в логах гитфлика"
+#    - "[console]::OutputEncoding"
+#    - echo "Тестируем кириллицу в логах гитфлика"
 
 'Загрузить':
   stage: 'ERP_MAV'
