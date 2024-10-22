@@ -10,12 +10,13 @@ stages:
   stage: 'ERP_MAV'
   script:
     - |
-      [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251')
-      echo 'Понеслась родная'
-      cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs
-      $script = ($(get-location).Path + '\sql\loadsqlcopy.os')
-      echo $script
-      oscript $script 'RTITS-CIS-02' 'ERP_MAV' 'D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV' -encoding=windows-1251
+      [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
+      echo 'Понеслась родная';
+      Start-Sleep -Seconds 30;
+      cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs;
+      $script = ($(get-location).Path + '\sql\loadsqlcopy.os');
+      echo $script;
+      oscript $script 'RTITS-CIS-02' 'ERP_MAV' 'D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV' -encoding=windows-1251;
 
   artifacts:
     name: 'Журнал'
