@@ -14,7 +14,7 @@ stages:
     oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV
   artifacts:
     name: 'Журнал'
-    paths: Logs    
+    paths: D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs    
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
