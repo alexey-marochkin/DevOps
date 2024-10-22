@@ -13,7 +13,7 @@ test:
   stage: 'ERP_MAV'
   when: manual
   script: >
-    [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("windows-1251");
+    [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
     [console]::OutputEncoding;
     echo "Тестируем кириллицу в логах гитфлика"
 #    - "[console]::OutputEncoding"
