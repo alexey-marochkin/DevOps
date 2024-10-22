@@ -6,21 +6,15 @@ stages:
   - 'ERP_BEF'
   - 'ERP_NAM'
 
-build:
-  stage: build
-  script:
-    - echo "Сборка проекта"
-    - echo "Собранный проект" > build.txt
-  artifacts:
-    paths: build.txt
-
-
 'Загрузить':
   stage: 'Загрузка ERP_MAV'
   script:
     - dir
     - if not exist .\Logs mkdir .\Logs
     - oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+  artifacts:
+    name: 'Журнал'
+    paths: .\Logs    
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
