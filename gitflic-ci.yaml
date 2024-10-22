@@ -9,6 +9,12 @@ stages:
 before_script:
   - $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
+test:
+  stage: 'ERP_MAV'
+  script:
+    - dir
+    - echo "Тестируем кириллицу в логах"
+
 'Загрузить':
   stage: 'ERP_MAV'
   script:
