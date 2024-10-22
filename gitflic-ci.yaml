@@ -9,13 +9,14 @@ stages:
 'Загрузить ERP_MAV':
   stage: 'ERP_MAV'
   script:
-    - |
-      echo 'Устанавливаем кодировку'
-      [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251')
-      echo 'Создаем каталог логов если его нет'
-      cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs
-      echo 'Запускаем основной скрипт'
-      oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV
+    - >
+      [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
+      echo -e '\e[31mУстанавили кодировку';
+      echo 'Создаем каталог логов если его нет';
+      cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs;
+      echo 'Запускаем основной скрипт';
+      dir;
+      oscript -encoding=windows-1251 .\sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV;
 
   artifacts:
     name: 'Журнал'
