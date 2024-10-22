@@ -10,11 +10,11 @@ stages:
   stage: 'ERP_MAV'
   script:
     - dir
-    - if not exist .\Logs mkdir .\Logs
+    - cmd /c if not exist Logs mkdir Logs
     - oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
   artifacts:
     name: 'Журнал'
-    paths: .\Logs    
+    paths: Logs    
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
