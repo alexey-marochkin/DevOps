@@ -7,7 +7,7 @@ stages:
   - 'ERP_NAM'
 
 'Загрузить':
-  stage: 'Загрузка ERP_MAV'
+  stage: 'ERP_MAV'
   script:
     - dir
     - if not exist .\Logs mkdir .\Logs
