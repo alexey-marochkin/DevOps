@@ -11,8 +11,10 @@ before_script:
 
 test:
   stage: 'ERP_MAV'
+  when: manual
   script:
     - dir
+    - [console]::OutputEncoding
     - echo "Тестируем кириллицу в логах"
 
 'Загрузить':
