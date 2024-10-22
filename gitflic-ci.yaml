@@ -13,7 +13,9 @@ test:
   stage: 'ERP_MAV'
   when: manual
   script:
-    - dir
+    - chcp 65001;
+    $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding;
+    echo "Тестируем кириллицу в логах гитфлика"
     - "[console]::OutputEncoding"
     - echo "Тестируем кириллицу в логах гитфлика"
 
