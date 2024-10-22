@@ -18,8 +18,8 @@ End
 GO
 
 RESTORE DATABASE $(db) FROM DISK = '$(bakfile)' WITH REPLACE, FILE = 1, RECOVERY,
-MOVE N'$(sourcedb)' TO 'D:\DBDATA\data\$(db).mdf',
-MOVE N'$(sourcedb)_log' TO 'D:\DBDATA\logs\$(db)_log.ldf'
+MOVE N'$(sourcedb)' TO 'D:\MSSQL\data\$(db).mdf',
+MOVE N'$(sourcedb)_log' TO 'D:\MSSQL\logs\$(db)_log.ldf'
 GO
 
 USE $(db)
