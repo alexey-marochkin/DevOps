@@ -13,8 +13,7 @@ test:
   stage: 'ERP_MAV'
   when: manual
   script: >
-    chcp 1251;
-    $OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding;
+    [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("windows-1251");
     [console]::OutputEncoding;
     echo "Тестируем кириллицу в логах гитфлика"
 #    - "[console]::OutputEncoding"
