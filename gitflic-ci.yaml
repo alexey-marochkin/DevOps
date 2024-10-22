@@ -6,25 +6,28 @@ stages:
   - 'ERP_BEF'
   - 'ERP_NAM'
 
-test:
+'Загрузить ERP_MAV':
   stage: 'ERP_MAV'
-  when: manual
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
-    [console]::OutputEncoding;
-    echo 'Тестируем кириллицу в логах гитфлика'
-#    - "[console]::OutputEncoding"
-#    - echo "Тестируем кириллицу в логах гитфлика"
-
-'Загрузить':
-  stage: 'ERP_MAV'
-  script:
-    - dir
-    - cmd /c if not exist Logs mkdir Logs
-    - oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+    cmd /c if not exist Logs mkdir Logs;
+    oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
   artifacts:
     name: 'Журнал'
     paths: Logs    
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
+
+'Загрузить ERP_KDS:
+  stage: 'ERP_KDS'
+  script: >
+    [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
+    cmd /c if not exist Logs mkdir Logs;
+    oscript -encoding=utf-8 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV .
+  artifacts:
+    name: 'Журнал'
+    paths: Logs    
+  when: manual
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin1" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
