@@ -15,7 +15,7 @@ test:
   script:
     - dir
     - [console]::OutputEncoding
-    - echo "Тестируем кириллицу в логах"
+    - echo "Тестируем кириллицу в логах гитфлика"
 
 'Загрузить':
   stage: 'ERP_MAV'
