@@ -9,7 +9,7 @@ stages:
 'Загрузить ERP_MAV':
   stage: 'ERP_MAV'
   script:
-    - '[console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("windows-1251")'
+#    - [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("windows-1251")
     - echo 'Устанавили кодировку';
     - echo 'Создаем каталог логов если его нет';
     - cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs;
