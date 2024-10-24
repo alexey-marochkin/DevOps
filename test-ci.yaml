@@ -4,10 +4,13 @@ stages:
 TEST:
   stage: TEST
   when: manual
+  artifacts:
+    paths:
+      - Logs  
   script:
     - |
       oscript -v;
       oscript -encoding=windows-1251 sql\testscript.os;
       oscript -encoding=windows-1251 sql\wrongname.os;
-      oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV LOGS;
+      oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV;
         
