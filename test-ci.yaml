@@ -7,6 +7,7 @@ TEST:
   script:
     - |
       oscript -v;
-      oscript -encoding=windows-1251 sql\testscript.os
-      oscript -encoding=windows-1251 sql\wrongname.os
+      oscript -encoding=windows-1251 sql\testscript.os;
+      oscript -encoding=windows-1251 sql\wrongname.os;
+      oscript -encoding=windows-1251 sql\loadsqlcopy.os;
         
