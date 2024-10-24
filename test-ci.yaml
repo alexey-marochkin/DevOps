@@ -12,5 +12,5 @@ TEST:
       oscript -v;
       oscript -encoding=windows-1251 sql\testscript.os;
       oscript -encoding=windows-1251 sql\wrongname.os;
-      oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV;
+      oscript -encoding=windows-1251 sql\loadsqlcopy.os --server RTITS-CIS-02 --dbase ERP_MAV;
         
