@@ -7,5 +7,6 @@ TEST:
   script:
     - |
       oscript -v;
-      oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV;
+      oscript -encoding=windows-1251 sql\testscript.os
+      oscript -encoding=windows-1251 sql\wrongname.os
         
