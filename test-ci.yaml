@@ -3,6 +3,8 @@ stages:
 
 TEST:
   stage: TEST
-  script:
-    - oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV
+  when: manual
+  script: >
+  oscript -v
+  oscript -encoding=windows-1251 sql\loadsqlcopy.os RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV
         
