@@ -44,7 +44,7 @@ stages:
 
 
 'Загрузить ERP_KDS':
-  stage: 'ERP_KDS'
+  stage: 'KDS'
   script: >
     [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
     cmd /c if not exist Logs mkdir Logs;
