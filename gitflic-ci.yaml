@@ -1,13 +1,14 @@
 stages:
-  - 'ERP_MAV'
-  - 'ERP_KDS'
-  - 'ERP_MMY'
-  - 'ERP_DJR'
-  - 'ERP_BEF'
-  - 'ERP_NAM'
+  - 'MAV'
+  - 'KDS'
+  - 'MMY'
+  - 'DJR'
+  - 'BEF'
+  - 'NAM'
+  - 'COMMON'
 
 'Загрузить ERP_MAV':
-  stage: 'ERP_MAV'
+  stage: 'MAV'
   script:
     - |
       [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
@@ -26,6 +27,20 @@ stages:
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
+'Загрузить ERP_NM_MAV':
+  stage: 'MAV'
+  when: manual
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
+
+'Загрузить ECM_MAV':
+  stage: 'MAV'
+  when: manual
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
+
+
+
 'Загрузить ERP_KDS':
   stage: 'ERP_KDS'
   script: >
@@ -35,6 +50,18 @@ stages:
   artifacts:
     name: 'Журнал'
     paths: Logs    
+  when: manual
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
+
+'Загрузить ERP_NM_KDS':
+  stage: 'KDS'
+  when: manual
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
+
+'Загрузить ECM_KDS':
+  stage: 'KDS'
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
