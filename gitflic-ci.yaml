@@ -29,12 +29,14 @@ stages:
 
 'Загрузить ERP_NM_MAV':
   stage: 'MAV'
+  script: echo 'ТЕСТ'
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
 'Загрузить ECM_MAV':
   stage: 'MAV'
+  script: echo 'ТЕСТ'
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
@@ -56,12 +58,14 @@ stages:
 
 'Загрузить ERP_NM_KDS':
   stage: 'KDS'
+  script: echo 'ТЕСТ'
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
 
 'Загрузить ECM_KDS':
   stage: 'KDS'
+  script: echo 'ТЕСТ'
   when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitry-klimashin"
