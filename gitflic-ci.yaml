@@ -43,9 +43,6 @@ stages:
     - |
       echo 'Запускаю основной скрипт с параметрами: Сервер: $SERVER_NAME База: $BASE_NAME_$SHORT_BASE';
       oscript sql\loadsqlcopy.os '$SERVER_NAME' '$BASE_NAME_$SHORT_BASE' 'D:\Users\$SHORT_BASE\GIT\.logs\$BASE_NAME_$SHORT_BASE' -encoding=windows-1251;
-#  artifacts:
-#    name: 'Logs'
-#    path: 'D:\Users\$SHORT_BASE\GIT\.logs\gitflic\$BASE_NAME_$SHORT_BASE\Logs'
 
 # Марочкин
 'Загрузить ERP_MAV':
