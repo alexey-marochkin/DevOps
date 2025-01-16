@@ -48,6 +48,7 @@ stages:
 'Загрузить ERP_MAV':
   extends: 'ERP_TEST'
   stage: 'MAV'
+  needs: []
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
