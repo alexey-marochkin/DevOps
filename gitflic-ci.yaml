@@ -7,65 +7,101 @@ stages:
   - 'NAM'
   - 'COMMON'
 
-'Загрузить ERP_MAV':
-  stage: 'MAV'
-  script:
-    - |
-      [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
-      echo 'Понеслась родная';
-      Start-Sleep -Seconds 30;
-      cmd /c if not exist D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs mkdir D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs;
-      oscript -v;
-      $script = ($(get-location).Path + '\sql\loadsqlcopy.os');
-      echo $script;
-      oscript $script 'RTITS-CIS-02' 'ERP_MAV' 'D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV' -encoding=windows-1251;
-
-  artifacts:
-    name: 'Журнал'
-    paths: D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV\Logs    
+'ERP_TEST'
+  stage: 'COMMON'
+  variables:
+    - $BASE_NAME = 'ERP'
+    - $SERVER_NAME = 'RTITS-CIS-02'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
+      variables:
+        $SHORT_BASE = 'MAV'
+    - if: $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
+      variables:
+        $SHORT_BASE = 'KDS'
+    - if: $GITFLIC_USER_LOGIN == "daniil-lobashov"
+      variables:
+        $SHORT_BASE = 'LDI'
+    - if: $GITFLIC_USER_LOGIN == "yuliya-davlyatshina"
+      variables:
+        $SHORT_BASE = 'DJR'
+    - if: $GITFLIC_USER_LOGIN == "elvin-binnatzade"
+      variables:
+        $SHORT_BASE = 'BEF'
+    - if: $GITFLIC_USER_LOGIN == "aleksey-novichikhin"
+      variables:
+        $SHORT_BASE = 'NAM'
+    - if: $GITFLIC_USER_LOGIN == "mikhail-madekin"
+      variables:
+        $SHORT_BASE = 'MMY'
   when: manual
+  before_script:
+    - cmd /c if not exist D:\Users\$SHORT_BASE\GIT\.logs\$BASE_NAME_$SHORT_BASE\Logs mkdir D:\Users\$SHORT_BASE\GIT\.logs\$BASE_NAME_$SHORT_BASE\Logs;
+  script:
+    - oscript sql\loadsqlcopy.os '$SERVER_NAME' '$BASE_NAME_$SHORT_BASE' 'D:\Users\$SHORT_BASE\GIT\.logs\$BASE_NAME_$SHORT_BASE' -encoding=windows-1251;
+  artifacts:
+    name: 'Logs'
+    path: 'D:\Users\$SHORT_BASE\GIT\.logs\gitflic\$BASE_NAME_$SHORT_BASE\Logs'
+
+# Марочкин
+'Загрузить ERP_MAV':
+  extend: 'ERP_TEST'
+  stage: 'MAV'
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
 'Загрузить ERP_NM_MAV':
+  extend: 'ERP_TEST'
+  variables: $BASE_NAME = 'ERP_NM'
   stage: 'MAV'
-  script: echo 'ТЕСТ'
-  when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
 'Загрузить ECM_MAV':
+  extend: 'ERP_TEST'
+  variables: $BASE_NAME = 'ECM'  
   stage: 'MAV'
-  script: echo 'ТЕСТ'
-  when: manual
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
 
-
-
+# Климашин
 'Загрузить ERP_KDS':
+  extend: 'ERP_TEST'
   stage: 'KDS'
-  script: >
-    [console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('windows-1251');
-    cmd /c if not exist Logs mkdir Logs;
-    oscript ($(get-location).Path + "\sql\loadsqlcopy.os") RTITS-CIS-02 ERP_MAV D:\Users\MAV\GIT\.logs\gitflic\ERP_MAV -encoding=windows-1251
-  artifacts:
-    name: 'Журнал'
-    paths: Logs    
-  when: manual
   rules:
-    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
+    - if: $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
 
 'Загрузить ERP_NM_KDS':
+  extend: 'ERP_TEST'
   stage: 'KDS'
-  script: echo 'ТЕСТ'
-  when: manual
+  variables: $BASE_NAME = 'ERP_NM'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
+    - if: $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
 
 'Загрузить ECM_KDS':
+  extend: 'ERP_TEST'
   stage: 'KDS'
-  script: echo 'ТЕСТ'
-  when: manual
+  variables: $BASE_NAME = 'ECM'  
   rules:
-    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" || $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
+    - if: $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
+
+# Давлятшина
+'Загрузить ERP_DJR':
+  extend: 'ERP_TEST'
+  stage: 'DJR'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "yuliya-davlyatshina"
+
+'Загрузить ERP_NM_DJR':
+  extend: 'ERP_TEST'
+  stage: 'DJR'
+  variables: $BASE_NAME = 'ERP_NM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "yuliya-davlyatshina"
+
+'Загрузить ECM_DJR':
+  extend: 'ERP_TEST'
+  stage: 'DJR'
+  variables: $BASE_NAME = 'ECM'  
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "yuliya-davlyatshina"
