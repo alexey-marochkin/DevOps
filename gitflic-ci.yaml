@@ -7,7 +7,7 @@ stages:
   - 'NAM'
   - 'COMMON'
 
-'ERP_TEST'
+'ERP_TEST':
   stage: 'COMMON'
   variables:
     - $BASE_NAME = 'ERP'
