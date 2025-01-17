@@ -54,7 +54,7 @@ ERP_MAV:
 ERP_NM_MAV:
   extends: 'ERP_MAV'
   variables:
-    BASE_NAME: 'ERP_NM'
+    BASE_NAME: 'ERPNM'
 
 ECM_MAV:
   extends: 'ERP_MAV'
@@ -73,7 +73,7 @@ ERP_KDS:
 ERP_NM_KDS:
   extends: 'ERP_KDS'
   variables:
-    BASE_NAME: 'ERP_NM'
+    BASE_NAME: 'ERPNM'
 
 ECM_KDS:
   extends: 'ERP_KDS'
@@ -92,7 +92,7 @@ ERP_DJR:
 ERP_NM_DJR:
   extends: 'ERP_DJR'
   variables:
-    BASE_NAME: 'ERP_NM'
+    BASE_NAME: 'ERPNM'
 
 ECM_DJR:
   extends: 'ERP_DJR'
