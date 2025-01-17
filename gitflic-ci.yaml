@@ -7,7 +7,7 @@ stages:
   - 'NAM'
   - 'COMMON'
 
-'ERP_TEST':
+ERP_TEST:
   stage: 'COMMON'
   variables:
     BASE_NAME = 'ERP'
@@ -45,13 +45,13 @@ stages:
       oscript sql\loadsqlcopy.os '$SERVER_NAME' '$BASE_NAME_$SHORT_BASE' 'D:\Users\$SHORT_BASE\GIT\.logs\$BASE_NAME_$SHORT_BASE' -encoding=windows-1251;
 
 # Марочкин
-'Загрузить ERP_MAV':
+ERP_MAV:
   extends: 'ERP_TEST'
   stage: 'MAV'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
 
-'Загрузить ERP_NM_MAV':
+ERP_NM_MAV:
   extends: 'ERP_TEST'
   variables:
     BASE_NAME = 'ERP_NM'
@@ -59,7 +59,7 @@ stages:
   rules:
     - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
 
-'Загрузить ECM_MAV':
+ECM_MAV:
   extends: 'ERP_TEST'
   variables:
     BASE_NAME = 'ECM'
@@ -68,13 +68,13 @@ stages:
     - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
 
 # Климашин
-'Загрузить ERP_KDS':
+ERP_KDS:
   extends: 'ERP_TEST'
   stage: 'KDS'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
 
-'Загрузить ERP_NM_KDS':
+ERP_NM_KDS:
   extends: 'ERP_TEST'
   stage: 'KDS'
   variables:
@@ -82,7 +82,7 @@ stages:
   rules:
     - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
 
-'Загрузить ECM_KDS':
+ECM_KDS:
   extends: 'ERP_TEST'
   stage: 'KDS'
   variables:
@@ -91,13 +91,13 @@ stages:
     - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
 
 # Давлятшина
-'Загрузить ERP_DJR':
+ERP_DJR:
   extends: 'ERP_TEST'
   stage: 'DJR'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "yuliya-davlyatshina"'
 
-'Загрузить ERP_NM_DJR':
+ERP_NM_DJR:
   extends: 'ERP_TEST'
   stage: 'DJR'
   variables:
@@ -105,8 +105,8 @@ stages:
   rules:
     - if: '$GITFLIC_USER_LOGIN == "yuliya-davlyatshina"'
 
-'Загрузить ECM_DJR':
-  extends: 'ERP_TEST'
+ECM_DJR:
+  extends: ERP_TEST
   stage: 'DJR'
   variables:
     BASE_NAME = 'ECM'  
