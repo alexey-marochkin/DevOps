@@ -13,10 +13,6 @@ ERP_TEST:
     BASE_NAME: 'ERP'
     SERVER_NAME: 'RTITS-CIS-02'
     SHORT_BASE: 'TEST'
-  rules:
-    - if: $GITFLIC_USER_LOGIN == "mikhail-madekin"
-      variables:
-        SHORT_BASE: 'MMY'
   when: manual
   before_script:
     - |
