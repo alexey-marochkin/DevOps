@@ -12,6 +12,7 @@ ERP_TEST:
   variables:
     BASE_NAME: 'ERP'
     SERVER_NAME: 'RTITS-CIS-02'
+    SHORT_BASE: 'TEMP'
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
       variables:
