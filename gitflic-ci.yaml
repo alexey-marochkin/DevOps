@@ -37,12 +37,17 @@ ERP_TEST:
   when: manual
   before_script:
     - |
-      echo 'Проверяю наличие каталога логов (создам при отсутствии)';
-      cmd /c if not exist "D:\Users\$env:SHORT_BASE\GIT\.logs\$env:BASE_NAME_$env:SHORT_BASE\Logs" mkdir "D:\Users\$env:SHORT_BASE\GIT\.logs\$env:BASE_NAME_$SHORT_BASE\Logs"
+      echo 'Проверяю наличие каталога логов (создам при отсутствии)'
+      $cmd = 'if not exist D:\Users\{0}\GIT\.logs\{1}_{0}\Logs mkdir D:\Users\{0}\GIT\.logs\{1}_{0}\Logs' -f $env:SHORT_BASE,$env:BASE_NAME
+      cmd /c $cmd
   script:
     - |
-      echo "Запускаю основной скрипт с параметрами: Сервер: $env:SERVER_NAME База: $env:BASE_NAME_$env:SHORT_BASE"
-      oscript sql\loadsqlcopy.os "$env:SERVER_NAME" "$env:BASE_NAME_$env:SHORT_BASE" "D:\Users\$env:SHORT_BASE\GIT\.logs\$env:BASE_NAME_$env:SHORT_BASE" -encoding=windows-1251
+      $msg = 'Запускаю основной скрипт с параметрами: Сервер: {0} База: {1}_{2}' -f $env:SERVER_NAME,$env:BASE_NAME,$env:SHORT_BASE
+      echo $msg
+      $server_name = $env:SERVER_NAME
+      $dbname = '{0}_{1}' -f $env:BASE_NAME,$env:SHORT_BASE
+      $logpath = 'D:\Users\{0}\GIT\.logs\{1}_{0}' - f $env:SHORT_BASE,$env:BASE_NAME
+      oscript sql\loadsqlcopy.os $server_name $dbname $logpath -encoding=windows-1251
 
 # Марочкин
 ERP_MAV:
