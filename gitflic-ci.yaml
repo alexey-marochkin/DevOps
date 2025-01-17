@@ -19,7 +19,7 @@ stages:
     - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
       variables:
         SHORT_BASE = 'KDS'
-    - if: '$GITFLIC_USER_LOGIN == "daniil-lobashov"''
+    - if: '$GITFLIC_USER_LOGIN == "daniil-lobashov"'
       variables:
         SHORT_BASE = 'LDI'
     - if: '$GITFLIC_USER_LOGIN == "yuliya-davlyatshina"'
@@ -53,14 +53,16 @@ stages:
 
 'Загрузить ERP_NM_MAV':
   extends: 'ERP_TEST'
-  variables: BASE_NAME = 'ERP_NM'
+  variables:
+    BASE_NAME = 'ERP_NM'
   stage: 'MAV'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
 
 'Загрузить ECM_MAV':
   extends: 'ERP_TEST'
-  variables: BASE_NAME = 'ECM'  
+  variables:
+    BASE_NAME = 'ECM'
   stage: 'MAV'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
@@ -75,14 +77,16 @@ stages:
 'Загрузить ERP_NM_KDS':
   extends: 'ERP_TEST'
   stage: 'KDS'
-  variables: BASE_NAME = 'ERP_NM'
+  variables:
+    BASE_NAME = 'ERP_NM'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
 
 'Загрузить ECM_KDS':
   extends: 'ERP_TEST'
   stage: 'KDS'
-  variables: BASE_NAME = 'ECM'  
+  variables:
+    BASE_NAME = 'ECM'  
   rules:
     - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
 
@@ -96,13 +100,15 @@ stages:
 'Загрузить ERP_NM_DJR':
   extends: 'ERP_TEST'
   stage: 'DJR'
-  variables: BASE_NAME = 'ERP_NM'
+  variables:
+    BASE_NAME = 'ERP_NM'
   rules:
     - if: '$GITFLIC_USER_LOGIN == "yuliya-davlyatshina"'
 
 'Загрузить ECM_DJR':
   extends: 'ERP_TEST'
   stage: 'DJR'
-  variables: BASE_NAME = 'ECM'  
+  variables:
+    BASE_NAME = 'ECM'  
   rules:
     - if: '$GITFLIC_USER_LOGIN == "yuliya-davlyatshina"'
