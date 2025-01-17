@@ -14,6 +14,8 @@ ERP_TEST:
     BASE_NAME: 'ERP'
     SERVER_NAME: 'RTITS-CIS-02'
     SHORT_BASE: 'TEST'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" OR $GITFLIC_USER_LOGIN == "dmitriy-klimashin" OR $GITFLIC_USER_LOGIN == "yuliya-davlyatshina" OR $GITFLIC_USER_LOGIN == "daniil-lobashov" OR $GITFLIC_USER_LOGIN == "elvin-binnatzade" OR $GITFLIC_USER_LOGIN == "aleksey-novichikhin" OR $GITFLIC_USER_LOGIN == "mikhail-madekin"
   when: manual
   before_script:
     - |
