@@ -46,7 +46,7 @@ ERP_TEST:
       echo $msg
       $server_name = $env:SERVER_NAME
       $dbname = '{0}_{1}' -f $env:BASE_NAME,$env:SHORT_BASE
-      $logpath = 'D:\Users\{0}\GIT\.logs\{1}_{0}' - f $env:SHORT_BASE,$env:BASE_NAME
+      $logpath = 'D:\Users\{0}\GIT\.logs\{1}_{0}' -f $env:SHORT_BASE,$env:BASE_NAME
       oscript sql\loadsqlcopy.os $server_name $dbname $logpath -encoding=windows-1251
 
 # Марочкин
