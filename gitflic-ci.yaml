@@ -48,8 +48,8 @@ ERP_TEST:
 ERP_MAV:
   extends: 'ERP_TEST'
   stage: 'MAV'
-  rules:
-    - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
+#  rules:
+#    - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
 
 ERP_NM_MAV:
   extends: 'ERP_TEST'
