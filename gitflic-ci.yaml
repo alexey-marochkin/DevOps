@@ -13,31 +13,32 @@ ERP_TEST:
     BASE_NAME: 'ERP'
     SERVER_NAME: 'RTITS-CIS-02'
   rules:
-    - if: '$GITFLIC_USER_LOGIN == "aleksey-marochkin"'
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"
       variables:
         SHORT_BASE: 'MAV'
-    - if: '$GITFLIC_USER_LOGIN == "dmitriy-klimashin"'
+    - if: $GITFLIC_USER_LOGIN == "dmitriy-klimashin"
       variables:
         SHORT_BASE: 'KDS'
-    - if: '$GITFLIC_USER_LOGIN == "daniil-lobashov"'
+    - if: $GITFLIC_USER_LOGIN == "daniil-lobashov"
       variables:
         SHORT_BASE: 'LDI'
-    - if: '$GITFLIC_USER_LOGIN == "yuliya-davlyatshina"'
+    - if: $GITFLIC_USER_LOGIN == "yuliya-davlyatshina"
       variables:
         SHORT_BASE: 'DJR'
-    - if: '$GITFLIC_USER_LOGIN == "elvin-binnatzade"'
+    - if: $GITFLIC_USER_LOGIN == "elvin-binnatzade"
       variables:
         SHORT_BASE: 'BEF'
-    - if: '$GITFLIC_USER_LOGIN == "aleksey-novichikhin"'
+    - if: $GITFLIC_USER_LOGIN == "aleksey-novichikhin"
       variables:
         SHORT_BASE: 'NAM'
-    - if: '$GITFLIC_USER_LOGIN == "mikhail-madekin"'
+    - if: $GITFLIC_USER_LOGIN == "mikhail-madekin"
       variables:
         SHORT_BASE: 'MMY'
   when: manual
   before_script:
     - |
-      echo 'Проверяю наличие каталога логов (создам при отсутствии)'
+      $msg = 'Проверяю наличие каталога логов (создам при отсутствии) для базы {0}_{1}' -f $env:BASE_NAME, $env:SHORT_BASE
+      echo $msg
       $cmd = 'if not exist D:\Users\{0}\GIT\.logs\{1}_{0}\Logs mkdir D:\Users\{0}\GIT\.logs\{1}_{0}\Logs' -f $env:SHORT_BASE,$env:BASE_NAME
       cmd /c $cmd
   script:
