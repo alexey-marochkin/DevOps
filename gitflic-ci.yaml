@@ -14,15 +14,6 @@ ERP_TEST:
     SERVER_NAME: 'RTITS-CIS-02'
     SHORT_BASE: 'TEST'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "daniil-lobashov"
-      variables:
-        SHORT_BASE: 'LDI'
-    - if: $GITFLIC_USER_LOGIN == "elvin-binnatzade"
-      variables:
-        SHORT_BASE: 'BEF'
-    - if: $GITFLIC_USER_LOGIN == "aleksey-novichikhin"
-      variables:
-        SHORT_BASE: 'NAM'
     - if: $GITFLIC_USER_LOGIN == "mikhail-madekin"
       variables:
         SHORT_BASE: 'MMY'
@@ -98,3 +89,79 @@ ECM_DJR:
   extends: 'ERP_DJR'
   variables:
     BASE_NAME: 'ECM'
+
+# Лобашов
+ERP_LDI:
+  extends: 'ERP_TEST'
+  stage: 'LDI'
+  variables:
+    SHORT_BASE: 'LDI'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "daniil-lobashov"
+
+ERP_NM_LDI:
+  extends: 'ERP_LDI'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_LDI:
+  extends: 'ERP_LDI'
+  variables:
+    BASE_NAME: 'ECM'
+
+# Биннатзаде
+ERP_BEF:
+  extends: 'ERP_TEST'
+  stage: 'BEF'
+  variables:
+    SHORT_BASE: 'BEF'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "elvin-binnatzade"
+
+ERP_NM_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ECM'
+
+# Новичихин
+ERP_NAM:
+  extends: 'ERP_TEST'
+  stage: 'NAM'
+  variables:
+    SHORT_BASE: 'NAM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-novichikhin"
+
+ERP_NM_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ECM'  
+
+# Мадекин
+ERP_MMY:
+  extends: 'ERP_TEST'
+  stage: 'MMY'
+  variables:
+    SHORT_BASE: 'MMY'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "mikhail-madekin"
+
+ERP_NM_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ECM'    
