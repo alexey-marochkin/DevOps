@@ -21,16 +21,19 @@ ERP_TEST:
     - |
       $msg = 'Проверяю наличие каталога логов (создам при отсутствии) для базы {0}_{1}' -f $env:BASE_NAME, $env:SHORT_BASE
       echo $msg
-      $cmd = 'if not exist D:\Users\{0}\GIT\.logs\{1}_{0} mkdir D:\Users\{0}\GIT\.logs\{1}_{0}' -f $env:SHORT_BASE,$env:BASE_NAME
-      cmd /c $cmd
+      # $cmd = 'if not exist D:\Users\{0}\GIT\.logs\{1}_{0} mkdir D:\Users\{0}\GIT\.logs\{1}_{0}' -f $env:SHORT_BASE,$env:BASE_NAME
+      # cmd /c $cmd
   script:
     - |
       $msg = 'Запускаю основной скрипт с параметрами: Сервер: {0} База: {1}_{2}' -f $env:SERVER_NAME,$env:BASE_NAME,$env:SHORT_BASE
       echo $msg
       $server_name = $env:SERVER_NAME
       $dbname = '{0}_{1}' -f $env:BASE_NAME,$env:SHORT_BASE
-      $logpath = 'D:\Users\{0}\GIT\.logs\{1}_{0}\' -f $env:SHORT_BASE,$env:BASE_NAME
-      oscript sql\loadsqlcopy.os $server_name $dbname $logpath -encoding=windows-1251
+      # $logpath = 'D:\Users\{0}\GIT\.logs\{1}_{0}\' -f $env:SHORT_BASE,$env:BASE_NAME
+      oscript sql\loadsqlcopy.os $server_name $dbname -encoding=windows-1251
+  artifacts:
+    paths:
+      - Logs
 
 ERP_NM_TEST:
   extends: 'ERP_TEST'
