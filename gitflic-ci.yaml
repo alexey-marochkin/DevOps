@@ -45,6 +45,11 @@ ECM_TEST:
   variables:
     BASE_NAME: 'ECM'
 
+ECM3_TEST:
+  extends: 'ERP_TEST'
+  variables:
+    BASE_NAME: 'ECM3'    
+
 # Марочкин
 ERP_MAV:
   extends: 'ERP_TEST'
@@ -64,6 +69,11 @@ ECM_MAV:
   variables:
     BASE_NAME: 'ECM'
 
+ECM3_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ECM3'
+
 # Климашин
 ERP_KDS:
   extends: 'ERP_TEST'
@@ -81,7 +91,12 @@ ERP_NM_KDS:
 ECM_KDS:
   extends: 'ERP_KDS'
   variables:
-    BASE_NAME: 'ECM'  
+    BASE_NAME: 'ECM'
+
+ECM3_KDS:
+  extends: 'ERP_KDS'
+  variables:
+    BASE_NAME: 'ECM3'    
 
 # Давлятшина
 ERP_DJR:
@@ -102,6 +117,11 @@ ECM_DJR:
   variables:
     BASE_NAME: 'ECM'
 
+ECM3_DJR:
+  extends: 'ERP_DJR'
+  variables:
+    BASE_NAME: 'ECM3'    
+
 # Лобашов
 ERP_LDI:
   extends: 'ERP_TEST'
@@ -120,6 +140,11 @@ ECM_LDI:
   extends: 'ERP_LDI'
   variables:
     BASE_NAME: 'ECM'
+
+ECM3_LDI:
+  extends: 'ERP_LDI'
+  variables:
+    BASE_NAME: 'ECM3'    
 
 # Биннатзаде
 ERP_BEF:
@@ -140,6 +165,11 @@ ECM_BEF:
   variables:
     BASE_NAME: 'ECM'
 
+ECM3_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ECM3'    
+
 # Новичихин
 ERP_NAM:
   extends: 'ERP_TEST'
@@ -157,7 +187,12 @@ ERP_NM_NAM:
 ECM_NAM:
   extends: 'ERP_NAM'
   variables:
-    BASE_NAME: 'ECM'  
+    BASE_NAME: 'ECM'
+
+ECM3_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ECM3'
 
 # Мадекин
 ERP_MMY:
@@ -176,4 +211,9 @@ ERP_NM_MMY:
 ECM_MMY:
   extends: 'ERP_MMY'
   variables:
-    BASE_NAME: 'ECM'    
+    BASE_NAME: 'ECM'
+
+ECM3_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ECM3'    
