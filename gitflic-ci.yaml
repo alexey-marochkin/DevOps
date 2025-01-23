@@ -6,6 +6,7 @@ stages:
   - 'BEF'
   - 'NAM'
   - 'LDI'
+  - 'TAV'  
   - 'COMMON'
 
 ERP_TEST:
@@ -216,4 +217,14 @@ ECM_MMY:
 ECM3_MMY:
   extends: 'ERP_MMY'
   variables:
-    BASE_NAME: 'ECM3'    
+    BASE_NAME: 'ECM3'
+
+
+# Мадекин
+ERP_TAV:
+  extends: 'ERP_TEST'
+  stage: 'TAV'
+  variables:
+    SHORT_BASE: 'TAV'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "andrey-tymchenko-rtits-ru"
