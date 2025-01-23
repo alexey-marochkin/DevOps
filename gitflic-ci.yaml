@@ -6,7 +6,8 @@ stages:
   - 'BEF'
   - 'NAM'
   - 'LDI'
-  - 'TAV'  
+  - 'TAV'
+  - 'KAA'  
   - 'COMMON'
 
 ERP_TEST:
@@ -220,7 +221,7 @@ ECM3_MMY:
     BASE_NAME: 'ECM3'
 
 
-# Мадекин
+# Тымченко
 ERP_TAV:
   extends: 'ERP_TEST'
   stage: 'TAV'
@@ -228,3 +229,12 @@ ERP_TAV:
     SHORT_BASE: 'TAV'
   rules:
     - if: $GITFLIC_USER_LOGIN == "andrey-tymchenko-rtits-ru"
+
+# Тымченко
+ERP_KAA:
+  extends: 'ERP_TEST'
+  stage: 'KAA'
+  variables:
+    SHORT_BASE: 'KAA'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksandra-kotegova"
