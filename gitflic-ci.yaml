@@ -40,6 +40,7 @@ ERP_ECM3:
   extends: 'ERP_TEST'
   variables:
     BASE_NAME: 'ERP'
+    SHORT_BASE: 'ECM3'
 
 ERP_NM_TEST:
   extends: 'ERP_TEST'
