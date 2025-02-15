@@ -36,6 +36,10 @@ ERP_TEST:
   artifacts:
     paths:
       - Logs
+ERP_ECM3:
+  extends: 'ERP_TEST'
+  variables:
+    BASE_NAME: 'ERP'
 
 ERP_NM_TEST:
   extends: 'ERP_TEST'
