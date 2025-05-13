@@ -7,7 +7,8 @@ stages:
   - 'NAM'
   - 'LDI'
   - 'TAV'
-  - 'KAA'  
+  - 'KAA'
+  - 'NRY'  
   - 'COMMON'
 
 ERP_TEST:
@@ -19,12 +20,6 @@ ERP_TEST:
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" OR $GITFLIC_USER_LOGIN == "dmitriy-klimashin" OR $GITFLIC_USER_LOGIN == "yuliya-davlyatshina" OR $GITFLIC_USER_LOGIN == "daniil-lobashov" OR $GITFLIC_USER_LOGIN == "elvin-binnatzade" OR $GITFLIC_USER_LOGIN == "aleksey-novichikhin" OR $GITFLIC_USER_LOGIN == "mikhail-madekin"
   when: manual
-  before_script:
-    - |
-      $msg = 'Проверяю наличие каталога логов (создам при отсутствии) для базы {0}_{1}' -f $env:BASE_NAME, $env:SHORT_BASE
-      echo $msg
-      # $cmd = 'if not exist D:\Users\{0}\GIT\.logs\{1}_{0} mkdir D:\Users\{0}\GIT\.logs\{1}_{0}' -f $env:SHORT_BASE,$env:BASE_NAME
-      # cmd /c $cmd
   script:
     - |
       $msg = 'Запускаю основной скрипт с параметрами: Сервер: {0} База: {1}_{2}' -f $env:SERVER_NAME,$env:BASE_NAME,$env:SHORT_BASE
@@ -235,7 +230,7 @@ ERP_TAV:
   rules:
     - if: $GITFLIC_USER_LOGIN == "andrey-tymchenko-rtits-ru"
 
-# Тымченко
+# Котегова
 ERP_KAA:
   extends: 'ERP_TEST'
   stage: 'KAA'
@@ -243,3 +238,20 @@ ERP_KAA:
     SHORT_BASE: 'KAA'
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksandra-kotegova"
+
+# Нелепа
+ECM_NRY:
+  extends: 'ERP_TEST'
+  stage: 'NRY'
+  variables:
+    SHORT_BASE: 'ECM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "roman-nelepa"
+
+ECM3_NRY:
+  extends: 'ERP_TEST'
+  stage: 'NRY'
+  variables:
+    SHORT_BASE: 'ECM3'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "roman-nelepa"    
