@@ -244,7 +244,8 @@ ECM_NRY:
   extends: 'ERP_TEST'
   stage: 'NRY'
   variables:
-    SHORT_BASE: 'ECM'
+    SHORT_BASE: 'NRY'
+    BASE_NAME: 'ECM'
   rules:
     - if: $GITFLIC_USER_LOGIN == "roman-nelepa"
 
@@ -252,6 +253,7 @@ ECM3_NRY:
   extends: 'ERP_TEST'
   stage: 'NRY'
   variables:
-    SHORT_BASE: 'ECM3'
+    SHORT_BASE: 'NRY'
+    BASE_NAME: 'ECM3'
   rules:
     - if: $GITFLIC_USER_LOGIN == "roman-nelepa"    
