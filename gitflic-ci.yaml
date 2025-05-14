@@ -256,4 +256,4 @@ ECM3_NRY:
     SHORT_BASE: 'NRY'
     BASE_NAME: 'ECM3'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "roman-nelepa" OR $GITFLIC_USER_LOGIN == "aleksey-marochkin
+    - if: $GITFLIC_USER_LOGIN == "roman-nelepa" OR $GITFLIC_USER_LOGIN == "aleksey-marochkin"
