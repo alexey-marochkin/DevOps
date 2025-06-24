@@ -1,0 +1,8 @@
+{
+    "logs": "path",
+    "srvname": "srvname",
+    "ibname": "ibname",
+    "user": "login",
+    "pwd": "password",
+    "uc": "unblock code"
+}

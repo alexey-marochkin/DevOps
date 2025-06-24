@@ -1,2 +1,5 @@
 *.log
 *.txt
+sql/db_info.json
+.vscode/*
+.settings/*

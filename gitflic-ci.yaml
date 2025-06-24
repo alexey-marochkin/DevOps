@@ -1,0 +1,259 @@
+stages:
+  - 'MAV'
+  - 'KDS'
+  - 'MMY'
+  - 'DJR'
+  - 'BEF'
+  - 'NAM'
+  - 'LDI'
+  - 'TAV'
+  - 'KAA'
+  - 'NRY'  
+  - 'COMMON'
+
+ERP_TEST:
+  stage: 'COMMON'
+  variables:
+    BASE_NAME: 'ERP'
+    SERVER_NAME: 'RTITS-CIS-02'
+    SHORT_BASE: 'TEST'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" OR $GITFLIC_USER_LOGIN == "dmitriy-klimashin" OR $GITFLIC_USER_LOGIN == "yuliya-davlyatshina" OR $GITFLIC_USER_LOGIN == "daniil-lobashov" OR $GITFLIC_USER_LOGIN == "elvin-binnatzade" OR $GITFLIC_USER_LOGIN == "aleksey-novichikhin" OR $GITFLIC_USER_LOGIN == "mikhail-madekin"
+  when: manual
+  script:
+    - |
+      $msg = 'Запускаю основной скрипт с параметрами: Сервер: {0} База: {1}_{2}' -f $env:SERVER_NAME,$env:BASE_NAME,$env:SHORT_BASE
+      echo $msg
+      $server_name = $env:SERVER_NAME
+      $dbname = '{0}_{1}' -f $env:BASE_NAME,$env:SHORT_BASE
+      # $logpath = 'D:\Users\{0}\GIT\.logs\{1}_{0}\' -f $env:SHORT_BASE,$env:BASE_NAME
+      oscript sql\loadsqlcopy.os $server_name $dbname -encoding=windows-1251
+  artifacts:
+    paths:
+      - Logs
+ERP_ECM3:
+  extends: 'ERP_TEST'
+  variables:
+    BASE_NAME: 'ERP'
+    SHORT_BASE: 'ECM3'
+
+ERP_NM_TEST:
+  extends: 'ERP_TEST'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_TEST:
+  extends: 'ERP_TEST'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_TEST:
+  extends: 'ERP_TEST'
+  variables:
+    BASE_NAME: 'ECM3'    
+
+# Марочкин
+ERP_MAV:
+  extends: 'ERP_TEST'
+  stage: 'MAV'
+  variables:
+    SHORT_BASE: 'MAV'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin"        
+
+ERP_NM_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ECM3'
+
+# Климашин
+ERP_KDS:
+  extends: 'ERP_TEST'
+  stage: 'KDS'
+  variables:
+    SHORT_BASE: 'KDS'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "dmitriy-klimashin"      
+
+ERP_NM_KDS:
+  extends: 'ERP_KDS'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_KDS:
+  extends: 'ERP_KDS'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_KDS:
+  extends: 'ERP_KDS'
+  variables:
+    BASE_NAME: 'ECM3'    
+
+# Давлятшина
+ERP_DJR:
+  extends: 'ERP_TEST'
+  stage: 'DJR'
+  variables:
+    SHORT_BASE: 'DJR'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "yuliya-davlyatshina"
+
+ERP_NM_DJR:
+  extends: 'ERP_DJR'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_DJR:
+  extends: 'ERP_DJR'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_DJR:
+  extends: 'ERP_DJR'
+  variables:
+    BASE_NAME: 'ECM3'    
+
+# Лобашов
+ERP_LDI:
+  extends: 'ERP_TEST'
+  stage: 'LDI'
+  variables:
+    SHORT_BASE: 'LDI'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "daniil-lobashov"
+
+ERP_NM_LDI:
+  extends: 'ERP_LDI'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_LDI:
+  extends: 'ERP_LDI'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_LDI:
+  extends: 'ERP_LDI'
+  variables:
+    BASE_NAME: 'ECM3'    
+
+# Биннатзаде
+ERP_BEF:
+  extends: 'ERP_TEST'
+  stage: 'BEF'
+  variables:
+    SHORT_BASE: 'BEF'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "elvin-binnatzade"
+
+ERP_NM_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ECM3'    
+
+# Новичихин
+ERP_NAM:
+  extends: 'ERP_TEST'
+  stage: 'NAM'
+  variables:
+    SHORT_BASE: 'NAM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksey-novichikhin"
+
+ERP_NM_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ECM3'
+
+# Мадекин
+ERP_MMY:
+  extends: 'ERP_TEST'
+  stage: 'MMY'
+  variables:
+    SHORT_BASE: 'MMY'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "mikhail-madekin"
+
+ERP_NM_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ECM3'
+
+
+# Тымченко
+ERP_TAV:
+  extends: 'ERP_TEST'
+  stage: 'TAV'
+  variables:
+    SHORT_BASE: 'TAV'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "andrey-tymchenko-rtits-ru"
+
+# Котегова
+ERP_KAA:
+  extends: 'ERP_TEST'
+  stage: 'KAA'
+  variables:
+    SHORT_BASE: 'KAA'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "aleksandra-kotegova"
+
+# Нелепа
+ECM_NRY:
+  extends: 'ERP_TEST'
+  stage: 'NRY'
+  variables:
+    SHORT_BASE: 'NRY'
+    BASE_NAME: 'ECM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "roman-nelepa"
+
+ECM3_NRY:
+  extends: 'ERP_TEST'
+  stage: 'NRY'
+  variables:
+    SHORT_BASE: 'NRY'
+    BASE_NAME: 'ECM3'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "roman-nelepa" OR $GITFLIC_USER_LOGIN == "aleksey-marochkin"

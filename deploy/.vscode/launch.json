@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Отладка 1Script",
+            "type": "oscript",
+            "request": "launch",
+            "program": "${file}",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "env": {},
+            "runtimeExecutable": null,
+            "runtimeArgs": [],
+            "debugPort": 2801
+        },
+        {
+            "name": "Python: File (args)",
+            "type": "python",
+            "args": [   
+                "--local", "D:\\Users\\MAV\\GIT\\erp\\.merge_file_1d9ogz",
+                "--remote", "D:\\Users\\MAV\\GIT\\erp\\.merge_file_d9KWQ0",
+                "--base", "D:\\Users\\MAV\\GIT\\erp\\.merge_file_LaCNBu",
+                "--result", "D:\\Users\\MAV\\GIT\\erp\\.merge_file_1d9ogz",
+                "-l", "1:2",
+                "-r", "44611d86be5a4820c3304e72399936a4ab3cd840:2",
+                "-b", "1:2",
+            ],
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": true
+        }
+    ]
+}

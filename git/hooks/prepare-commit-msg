@@ -1,0 +1,28 @@
+#!/bin/bash
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+BRANCH=$(git branch --show-current)
+if [ "$BRANCH" = "master" ]
+then
+	date +"Сборка релиза от %Y-%m-%d" > "$COMMIT_MSG_FILE"
+	echo >> "$COMMIT_MSG_FILE"
+	git cherry -v HEAD MERGE_HEAD | egrep -o DEV-[0-9]+ | sort | uniq | awk '{print $0}' | tee -a "$COMMIT_MSG_FILE"
+	echo -e "#Закрыть" >> "$COMMIT_MSG_FILE"
+	
+else
+	ISSUE=`git branch --show-current | egrep -o DEV-[0-9]+ | head -n1`
+	if [ ! -z "$ISSUE" ]
+	then
+		if ! grep -i -q merge "$COMMIT_MSG_FILE"
+		then
+			read -r FIRSTLINE < "$COMMIT_MSG_FILE"
+			
+			if [[ ! "$FIRSTLINE" =~ $ISSUE ]]
+			then
+				echo -e "$ISSUE:" "$(cat "$1")" > "$1"
+			fi
+		fi
+	fi
+fi
