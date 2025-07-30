@@ -221,14 +221,14 @@ ECM3_MMY:
     BASE_NAME: 'ECM3'
 
 
-# Тымченко
-ERP_TAV:
+# Чепкина
+ERP_CVA:
   extends: 'ERP_TEST'
-  stage: 'TAV'
+  stage: 'CVA'
   variables:
-    SHORT_BASE: 'TAV'
+    SHORT_BASE: 'CVA'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "andrey-tymchenko-rtits-ru"
+    - if: $GITFLIC_USER_LOGIN == "valentina-chepkina"
 
 # Котегова
 ERP_KAA:
@@ -239,21 +239,21 @@ ERP_KAA:
   rules:
     - if: $GITFLIC_USER_LOGIN == "aleksandra-kotegova"
 
-# Нелепа
-ECM_NRY:
+# Иванаевский
+ECM_IDA:
   extends: 'ERP_TEST'
-  stage: 'NRY'
+  stage: 'IDA'
   variables:
-    SHORT_BASE: 'NRY'
+    SHORT_BASE: 'IDA'
     BASE_NAME: 'ECM'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "roman-nelepa"
+    - if: $GITFLIC_USER_LOGIN == "denis-ivanaevskiy"
 
-ECM3_NRY:
+ECM3_IDA:
   extends: 'ERP_TEST'
-  stage: 'NRY'
+  stage: 'IDA'
   variables:
-    SHORT_BASE: 'NRY'
+    SHORT_BASE: 'IDA'
     BASE_NAME: 'ECM3'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "roman-nelepa" OR $GITFLIC_USER_LOGIN == "aleksey-marochkin"
+    - if: $GITFLIC_USER_LOGIN == "denis-ivanaevskiy"
