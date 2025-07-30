@@ -6,9 +6,9 @@ stages:
   - 'BEF'
   - 'NAM'
   - 'LDI'
-  - 'TAV'
+  - 'CVA'
   - 'KAA'
-  - 'NRY'  
+  - 'IDA'  
   - 'COMMON'
 
 ERP_TEST:
