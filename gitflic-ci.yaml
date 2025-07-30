@@ -5,7 +5,7 @@ stages:
   - 'DJR'
   - 'BEF'
   - 'NAM'
-  - 'LDI'
+  - 'ZLS'
   - 'CVA'
   - 'KAA'
   - 'IDA'  
@@ -124,27 +124,27 @@ ECM3_DJR:
   variables:
     BASE_NAME: 'ECM3'    
 
-# Лобашов
-ERP_LDI:
+# Жигулина
+ERP_ZLS:
   extends: 'ERP_TEST'
-  stage: 'LDI'
+  stage: 'ZLS'
   variables:
-    SHORT_BASE: 'LDI'
+    SHORT_BASE: 'ZLS'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "daniil-lobashov"
+    - if: $GITFLIC_USER_LOGIN == "lyudmila-zhigulina"
 
-ERP_NM_LDI:
-  extends: 'ERP_LDI'
+ERP_NM_ZLS:
+  extends: 'ERP_ZLS'
   variables:
     BASE_NAME: 'ERPNM'
 
-ECM_LDI:
-  extends: 'ERP_LDI'
+ECM_ZLS:
+  extends: 'ERP_ZLS'
   variables:
     BASE_NAME: 'ECM'
 
-ECM3_LDI:
-  extends: 'ERP_LDI'
+ECM3_ZLS:
+  extends: 'ERP_ZLS'
   variables:
     BASE_NAME: 'ECM3'    
 
