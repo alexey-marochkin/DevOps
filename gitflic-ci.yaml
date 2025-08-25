@@ -120,7 +120,7 @@ ECM_FAA:
   variables:
     BASE_NAME: 'ECM'
 
-ECM3_DJR:
+ECM3_FAA:
   extends: 'ERP_FAA'
   variables:
     BASE_NAME: 'ECM3'    
