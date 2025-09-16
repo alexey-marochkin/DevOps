@@ -10,6 +10,7 @@ stages:
   - 'CVA'
   - 'KAA'
   - 'IDA'  
+  - 'KNA'
   - 'COMMON'
 
 ERP_TEST:
@@ -282,3 +283,18 @@ ECM3_IDA:
     BASE_NAME: 'ECM3'
   rules:
     - if: $GITFLIC_USER_LOGIN == "denis-ivanaevskiy"
+
+#Клочков Никита
+ERP_KNA:
+  extends: 'ERP_TEST'
+  stage: 'KNA'
+  variables:
+    SHORT_BASE: 'KNA'
+    BASE_NAME: 'ERP'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == @nikita-klochkov     
+
+ECM_KNA:
+  extends: 'ERP_KNA'
+  variables:
+    BASE_NAME: 'ECM'    
