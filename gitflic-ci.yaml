@@ -292,7 +292,7 @@ ERP_KNA:
     SHORT_BASE: 'KNA'
     BASE_NAME: 'ERP'
   rules:
-    - if: $GITFLIC_USER_LOGIN == @nikita-klochkov     
+    - if: $GITFLIC_USER_LOGIN == "nikita-klochkov"
 
 ECM_KNA:
   extends: 'ERP_KNA'
