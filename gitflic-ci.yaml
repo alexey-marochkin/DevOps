@@ -122,6 +122,11 @@ ECM_FAA:
   variables:
     BASE_NAME: 'ECM'
 
+ECM3_FAA:
+  extends: 'ERP_FAA'
+  variables:
+    BASE_NAME: 'ECM3'  
+
 # Пешкова
 ERP_PEA:
   extends: 'ERP_TEST'
