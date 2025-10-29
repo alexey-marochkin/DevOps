@@ -6,6 +6,7 @@ stages:
   - 'BEF'
   - 'NAM'
   - 'FAA'
+  - 'PEA'
   - 'ZLS'
   - 'CVA'
   - 'KAA'
@@ -20,7 +21,7 @@ ERP_TEST:
     SERVER_NAME: 'RTITS-CIS-02'
     SHORT_BASE: 'TEST'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" OR $GITFLIC_USER_LOGIN == "dmitriy-klimashin" OR $GITFLIC_USER_LOGIN == "yuliya-davlyatshina" OR $GITFLIC_USER_LOGIN == "andrey-fedotov" OR $GITFLIC_USER_LOGIN == "elvin-binnatzade" OR $GITFLIC_USER_LOGIN == "aleksey-novichikhin" OR $GITFLIC_USER_LOGIN == "mikhail-madekin"
+    - if: $GITFLIC_USER_LOGIN == "aleksey-marochkin" OR $GITFLIC_USER_LOGIN == "dmitriy-klimashin" OR $GITFLIC_USER_LOGIN == "yuliya-davlyatshina" OR $GITFLIC_USER_LOGIN == "andrey-fedotov" OR $GITFLIC_USER_LOGIN == "elena-peshkova" OR $GITFLIC_USER_LOGIN == "elvin-binnatzade" OR $GITFLIC_USER_LOGIN == "aleksey-novichikhin" OR $GITFLIC_USER_LOGIN == "mikhail-madekin"
   when: manual
   script:
     - |
@@ -121,8 +122,27 @@ ECM_FAA:
   variables:
     BASE_NAME: 'ECM'
 
-ECM3_FAA:
-  extends: 'ERP_FAA'
+# Пешкова
+ERP_PEA:
+  extends: 'ERP_TEST'
+  stage: 'PEA'
+  variables:
+    SHORT_BASE: 'PEA'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "elena-peshkova"
+
+ERP_NM_PEA:
+  extends: 'ERP_PEA'
+  variables:
+    BASE_NAME: 'ERPNM'
+
+ECM_PEA:
+  extends: 'ERP_PEA'
+  variables:
+    BASE_NAME: 'ECM'
+
+ECM3_PEA:
+  extends: 'ERP_PEA'
   variables:
     BASE_NAME: 'ECM3'    
 
