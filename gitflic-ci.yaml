@@ -55,11 +55,11 @@ ECM3_TEST:
   variables:
     BASE_NAME: 'ECM3'    
 
-ECM3_TEST_EXCH:
+ECM3_TESTEX:
   extends: 'ERP_TEST'
   variables:
     BASE_NAME: 'ECM3'
-    SHORT_BASE: 'TEST_EXCH'
+    SHORT_BASE: 'TESTEX'
 
 # Марочкин
 ERP_MAV:
