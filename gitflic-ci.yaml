@@ -85,6 +85,12 @@ ECM3_MAV:
   variables:
     BASE_NAME: 'ECM3'
 
+ECM3_PREPROD:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ECM3'
+    SHORT_BASE: 'PREPROD'    
+
 # Климашин
 ERP_KDS:
   extends: 'ERP_TEST'
