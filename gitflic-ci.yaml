@@ -196,6 +196,12 @@ ERP_ZLS:
   rules:
     - if: $GITFLIC_USER_LOGIN == "lyudmila-zhigulina"
 
+ERP_BUDGET:
+  extends: 'ERP_ZLS'
+  variables:
+    BASE_NAME: 'ERP'
+    SHORT_BASE: 'Budget'    
+
 ERP_NM_ZLS:
   extends: 'ERP_ZLS'
   variables:
