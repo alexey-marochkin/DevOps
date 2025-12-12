@@ -97,6 +97,12 @@ ERP_PREPROD:
     BASE_NAME: 'ERP'
     SHORT_BASE: 'PREPROD'        
 
+ECM_PREPROD:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ECM'
+    SHORT_BASE: 'PREPROD'
+
 # Климашин
 ERP_KDS:
   extends: 'ERP_TEST'
