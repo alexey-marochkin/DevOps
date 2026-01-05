@@ -75,6 +75,16 @@ ERP_NM_MAV:
   variables:
     BASE_NAME: 'ERPNM'
 
+ERP_REL_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ERPNMREL'        
+
 ECM_MAV:
   extends: 'ERP_MAV'
   variables:
