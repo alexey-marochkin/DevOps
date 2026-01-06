@@ -75,16 +75,6 @@ ERP_NM_MAV:
   variables:
     BASE_NAME: 'ERPNM'
 
-ERP_REL_MAV:
-  extends: 'ERP_MAV'
-  variables:
-    BASE_NAME: 'ERPREL' 
-
-ERP_NM_REL_MAV:
-  extends: 'ERP_MAV'
-  variables:
-    BASE_NAME: 'ERPNMREL'        
-
 ECM_MAV:
   extends: 'ERP_MAV'
   variables:
@@ -113,6 +103,16 @@ ECM_PREPROD:
     BASE_NAME: 'ECM'
     SHORT_BASE: 'PREPROD'
 
+ERP_REL_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_MAV:
+  extends: 'ERP_MAV'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
+
 # Климашин
 ERP_KDS:
   extends: 'ERP_TEST'
@@ -135,7 +135,17 @@ ECM_KDS:
 ECM3_KDS:
   extends: 'ERP_KDS'
   variables:
-    BASE_NAME: 'ECM3'    
+    BASE_NAME: 'ECM3'
+
+ERP_REL_KDS:
+  extends: 'ERP_KDS'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_KDS:
+  extends: 'ERP_KDS'
+  variables:
+    BASE_NAME: 'ERPNMREL'       
 
 # Федотов
 ERP_FAA:
@@ -161,6 +171,16 @@ ECM3_FAA:
   variables:
     BASE_NAME: 'ECM3'  
 
+ERP_REL_FAA:
+  extends: 'ERP_FAA'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_FAA:
+  extends: 'ERP_FAA'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
+
 # Пешкова
 ERP_PEA:
   extends: 'ERP_TEST'
@@ -185,6 +205,16 @@ ECM3_PEA:
   variables:
     BASE_NAME: 'ECM3'    
 
+ERP_REL_PEA:
+  extends: 'ERP_PEA'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_PEA:
+  extends: 'ERP_PEA'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
+
 # Давлятшина
 ERP_DJR:
   extends: 'ERP_TEST'
@@ -208,6 +238,16 @@ ECM3_DJR:
   extends: 'ERP_DJR'
   variables:
     BASE_NAME: 'ECM3'    
+
+ERP_REL_DJR:
+  extends: 'ERP_DJR'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_DJR:
+  extends: 'ERP_DJR'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
 
 # Жигулина
 ERP_ZLS:
@@ -263,6 +303,16 @@ ECM3_BEF:
   variables:
     BASE_NAME: 'ECM3'    
 
+ERP_REL_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_BEF:
+  extends: 'ERP_BEF'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
+
 # Новичихин
 ERP_NAM:
   extends: 'ERP_TEST'
@@ -286,6 +336,16 @@ ECM3_NAM:
   extends: 'ERP_NAM'
   variables:
     BASE_NAME: 'ECM3'
+
+ERP_REL_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_NAM:
+  extends: 'ERP_NAM'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
 
 # Мадекин
 ERP_MMY:
@@ -311,6 +371,15 @@ ECM3_MMY:
   variables:
     BASE_NAME: 'ECM3'
 
+ERP_REL_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ERPREL' 
+
+ERP_NM_REL_MMY:
+  extends: 'ERP_MMY'
+  variables:
+    BASE_NAME: 'ERPNMREL'   
 
 # Чепкина
 ERP_CVA:
