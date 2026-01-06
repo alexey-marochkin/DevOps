@@ -19,8 +19,8 @@ GO
 
 ALTER DATABASE [$(db)] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
 RESTORE DATABASE [$(db)] FROM  DISK = N'$(bakfile)' WITH  FILE = 1,  
-MOVE N'ERP_Production' TO N'D:\MSSQL\Data\$(db).mdf',  
-MOVE N'ERP_Production_log' TO N'D:\MSSQL\Logs\$(db)_log.ldf',  
+MOVE N'$(sourcedb)' TO N'D:\MSSQL\Data\$(db).mdf',  
+MOVE N'$(sourcedb)_log' TO N'D:\MSSQL\Logs\$(db)_log.ldf',  
 NOUNLOAD,  REPLACE,  STATS = 5
 ALTER DATABASE [$(db)] SET MULTI_USER
 GO
