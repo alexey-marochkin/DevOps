@@ -11,6 +11,7 @@ stages:
   - 'CVA'
   - 'KAA'
   - 'IDA'  
+  - 'KKD'
   - 'KNA'
   - 'COMMON'
 
@@ -417,6 +418,26 @@ ECM3_IDA:
     BASE_NAME: 'ECM3'
   rules:
     - if: $GITFLIC_USER_LOGIN == "denis-ivanaevskiy"
+
+# Холопова @kristina-kholopova-rtits-ru
+ECM_KKD:
+  extends: 'ERP_TEST'
+  stage: 'KKD'
+  variables:
+    SHORT_BASE: 'KKD'
+    BASE_NAME: 'ECM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "kristina-kholopova-rtits-ru"
+
+ECM3_IDA:
+  extends: 'ERP_TEST'
+  stage: 'KKD'
+  variables:
+    SHORT_BASE: 'KKD'
+    BASE_NAME: 'ECM3'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "kristina-kholopova-rtits-ru"
+
 
 #Клочков Никита
 ERP_KNA:
