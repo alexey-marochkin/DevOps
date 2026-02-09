@@ -419,7 +419,7 @@ ECM3_IDA:
   rules:
     - if: $GITFLIC_USER_LOGIN == "denis-ivanaevskiy"
 
-# Холопова @kristina-kholopova-rtits-ru
+# Холопова @kristina-kholopova
 ECM_KKD:
   extends: 'ERP_TEST'
   stage: 'KKD'
@@ -427,7 +427,7 @@ ECM_KKD:
     SHORT_BASE: 'KKD'
     BASE_NAME: 'ECM'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "kristina-kholopova-rtits-ru"
+    - if: $GITFLIC_USER_LOGIN == "kristina-kholopova"
 
 ECM3_IDA:
   extends: 'ERP_TEST'
@@ -436,7 +436,7 @@ ECM3_IDA:
     SHORT_BASE: 'KKD'
     BASE_NAME: 'ECM3'
   rules:
-    - if: $GITFLIC_USER_LOGIN == "kristina-kholopova-rtits-ru"
+    - if: $GITFLIC_USER_LOGIN == "kristina-kholopova"
 
 
 #Клочков Никита
