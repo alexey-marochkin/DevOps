@@ -429,7 +429,7 @@ ECM_KKD:
   rules:
     - if: $GITFLIC_USER_LOGIN == "kristina-kholopova"
 
-ECM3_IDA:
+ECM3_KKD:
   extends: 'ERP_TEST'
   stage: 'KKD'
   variables:
