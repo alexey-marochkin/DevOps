@@ -452,4 +452,19 @@ ERP_KNA:
 ECM_KNA:
   extends: 'ERP_KNA'
   variables:
-    BASE_NAME: 'ECM'    
+    BASE_NAME: 'ECM'
+
+# Трофименко Ирина
+ERP_TIV:
+  extends: 'ERP_TEST'
+  stage: 'TIV'
+  variables:
+    SHORT_BASE: 'TIV'
+    BASE_NAME: 'ERP'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "irina-trofimenko"
+
+ERP_NM_TIV:
+  extends: 'ERP_TIV'
+  variables:
+    BASE_NAME: 'ERPNM'    
