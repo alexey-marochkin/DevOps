@@ -1,4 +1,5 @@
 stages:
+  - 'IVD'
   - 'TIV'
   - 'MAV'
   - 'KDS'
@@ -468,4 +469,19 @@ ERP_TIV:
 ERP_NM_TIV:
   extends: 'ERP_TIV'
   variables:
-    BASE_NAME: 'ERPNM'    
+    BASE_NAME: 'ERPNM'
+
+# Иванаевский
+ECM_IVD:
+  extends: 'ERP_TEST'
+  stage: 'IVD'
+  variables:
+    SHORT_BASE: 'IVD'
+    BASE_NAME: 'ECM'
+  rules:
+    - if: $GITFLIC_USER_LOGIN == "viktor-ivanov"
+
+ECM3_IVD:
+  extends: 'ECM_IVD'
+  variables:
+    BASE_NAME: 'ECM3'
