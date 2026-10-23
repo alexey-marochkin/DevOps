@@ -17,9 +17,12 @@ End
 
 GO
 
-RESTORE DATABASE $(db) FROM DISK = '$(bakfile)' WITH REPLACE, FILE = 1, RECOVERY,
-MOVE N'$(sourcedb)' TO 'D:\DBDATA\data\$(db).mdf',
-MOVE N'$(sourcedb)_log' TO 'D:\DBDATA\logs\$(db)_log.ldf'
+ALTER DATABASE [$(db)] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+RESTORE DATABASE [$(db)] FROM  DISK = N'$(bakfile)' WITH  FILE = 1,  
+MOVE N'$(sourcedb)' TO N'D:\MSSQL\Data\$(db).mdf',  
+MOVE N'$(sourcedb)_log' TO N'D:\MSSQL\Logs\$(db)_log.ldf',  
+NOUNLOAD,  REPLACE,  STATS = 5
+ALTER DATABASE [$(db)] SET MULTI_USER
 GO
 
 USE $(db)
